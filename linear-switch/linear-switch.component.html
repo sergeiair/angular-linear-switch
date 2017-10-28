@@ -1,0 +1,19 @@
+<div class="linear-switch">
+
+  <div *ngFor="let opt of options; let i = index;"
+    class="linear-switch__item"
+    [ngClass]="{
+      'linear-switch__item--first': i === 0,
+      'linear-switch__item--last': i === options.length - 1
+    }"
+    (click)="optionSelected(i)">
+      {{opt}}
+  </div>
+
+  <div [@animateCaret]="state.index"
+    class="linear-switch__caret">
+      {{state.value}}
+  </div>
+
+</div>
+

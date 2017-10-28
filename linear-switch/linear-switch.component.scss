@@ -1,0 +1,57 @@
+
+$themeColor1: #CCC;
+$themeColor2: #574D8A;
+$themeColor3: #FFF;
+
+/*
+  Should be configured in animations also
+*/
+$itemSide: 65px;
+$borderRadius: 8px;
+$borderWidth: 1px;
+
+/*
+  Computing sides
+*/
+$itemHeight: $itemSide - 25px;
+$caretHeight: $itemHeight + 5;
+$caretWidth: $itemSide + $borderWidth;
+
+.linear-switch {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  position: relative;
+  box-sizing: border-box;
+  color: $themeColor1;
+
+  &__item {
+    width: $itemSide;
+    line-height: $itemHeight;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: center;
+    border: $borderWidth solid $themeColor1;
+    border-right: none;
+    &--first {
+      border-radius: $borderRadius 0 0 $borderRadius;
+    }
+    &--last {
+      border-radius: 0 $borderRadius $borderRadius 0;
+      border-right: $borderWidth solid $themeColor1;
+    }
+  }
+
+  &__caret {
+    position: absolute;
+    top: $borderWidth * -2;
+    left: 0;
+    width: $caretWidth;
+    height: $caretHeight;
+    line-height: $caretHeight;
+    border-radius: $borderRadius;
+    text-align: center;
+    background: $themeColor2;
+    color: $themeColor3;
+  }
+}
